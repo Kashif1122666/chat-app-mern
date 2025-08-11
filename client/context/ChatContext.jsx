@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import toast from "react-hot-toast";
 
-export const chatContext = createContext();
+export const ChatContext = createContext();
 
-export const chatProvider = ({ children }) => {
+export const ChatProvider = ({ children }) => {
     const [messages , setMessages] = useState([]);
     const [users , setUsers] = useState([]);
     const [selectedUser , setSelectedUser] = useState(null);
@@ -86,7 +86,7 @@ export const chatProvider = ({ children }) => {
 
     const value = {
         messages,
-        setMessages,
+        getMessages,
         users,
         setUsers,
         selectedUser,
@@ -98,8 +98,8 @@ export const chatProvider = ({ children }) => {
     }
 
     return (
-        <chatContext.Provider value={value}>
+        <ChatContext.Provider value={value}>
             {children}
-        </chatContext.Provider>
+        </ChatContext.Provider>
     );
 };
