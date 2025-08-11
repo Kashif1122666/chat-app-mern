@@ -50,6 +50,8 @@ app.use("/api/messages",messageRouter);
 
 // connect to MongoDB 
 await connectDB();
+// console.log("Connected to:", process.env.MONGODB_URI + "/chat-app");
+
 
 const PORT = process.env.PORT || 5000;
 
